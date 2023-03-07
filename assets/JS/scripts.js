@@ -25,3 +25,11 @@ document.getElementById('to-top').addEventListener('click', function() {
     document.body.scrollTop = 0
     document.documentElement.scrollTop = 0
 })
+// Funktion um Elementen die Klasse "animate" zuzuweisen
+function elementAddAnimate() {
+    let elements = document.querySelectorAll('h1, h2, p, .project, .post')
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].classList.add('animate')
+    }
+    
+}

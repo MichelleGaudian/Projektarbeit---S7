@@ -110,6 +110,7 @@ img:not([src$=svg]) {
     max-width: 100%;
     height: auto;
     vertical-align: bottom;
+    
 }
 
 
@@ -256,12 +257,18 @@ input[type=submit]:hover,
 
 /* Logo */
 #brand {
-    height: 150px;
+    height: 80px;
     padding: 20px;
 }
 
 #brand .custom-logo {
     height: 100%;
+}
+
+@media screen and (min-width: 820px) {
+    #brand {
+        height: 150px;
+    }
 }
 
 #brand .custom-logo:not([src$=svg]) {
@@ -360,4 +367,114 @@ input[type=submit]:hover,
         pointer-events: none;
         transition: opacity 150ms ease-in-out;
     }
+}
+
+
+/* Menu Toggle */
+#nav-button {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+@media (min-width: 820px) {
+    #nav-button {
+        display: none;
+    }
+}
+
+#nav-button .nav-button-icon,
+#nav-button .nav-button-icon::before,
+#nav-button .nav-button-icon::after {
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: var(--base);
+}
+
+#nav-button .nav-button-icon {
+    position: relative;
+    left: -50px;
+    transition: background-color 250ms ease-in-out;
+}
+
+#nav-button .nav-button-icon::before, #nav-button .nav-button-icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: transform 250ms ease-in-out;
+}
+
+#nav-button .nav-button-icon::before {
+    transform: translateY(-12px);
+}
+
+#nav-button .nav-button-icon::after {
+    transform: translateY(12px);
+}
+
+#nav-toggle {
+    display: none;
+}
+
+#nav-toggle:checked ~ #nav-button .nav-button-icon {
+    background-color: transparent;
+}
+
+#nav-toggle:checked ~ #nav-button .nav-button-icon::before {
+    transform: rotate(-45deg);
+}
+
+#nav-toggle:checked ~ #nav-button .nav-button-icon::after {
+    transform: rotate(45deg);
+}
+
+#nav-toggle:checked ~ #nav-main {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ******************
+ * SCREEN READER TEXT (WordPress Core Styles)
+ */
+
+ .screen-reader-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+    background-color: #eee;
+    clip: auto !important;
+    -webkit-clip-path: none;
+    clip-path: none;
+    color: #444;
+    display: block;
+    font-size: 1em;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+}
+
+.main-section {
+    margin-left: 50px;
+    margin-right: 50px;
 }
