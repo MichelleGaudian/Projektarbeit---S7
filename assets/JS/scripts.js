@@ -9,27 +9,35 @@ function jsLoaded() {
 
 
 
-// Anzeigen/Verstecken vom Top Button
-function showToTop() {
+// Show/Hide To-Top Button
+function showToTop(){
     const toTopButton = document.getElementById('to-top')
-    if(window.scrollY > 200) {
+    if(window.scrollY > 200){
         toTopButton.classList.add('show')
-
     } else {
         toTopButton.classList.remove('show')
     }
 }
 
-// scoll to Top bei Button klick
-document.getElementById('to-top').addEventListener('click', function() {
+
+// scroll to top bei Button Klick
+document.getElementById('to-top').addEventListener('click', function(){
     document.body.scrollTop = 0
     document.documentElement.scrollTop = 0
 })
-// Funktion um Elementen die Klasse "animate" zuzuweisen
-function elementAddAnimate() {
-    let elements = document.querySelectorAll('h1, h2, p, .project, .post')
-    for (let i = 0; i < elements.length; i++) {
-        elements[i].classList.add('animate')
-    }
+
+  
+
+// bilder 4 stück einrücken
+$(window).scroll(function() {
+    var scrollBottom = $(window).scrollTop() + $(window).height();
+    var containerTop = $(".image-container").offset().top;
     
-}
+    if (scrollBottom > containerTop) {
+      $(".image-container img").each(function(index) {
+        $(this).delay(index * 250).animate({opacity: 1}, 1000);
+      });
+      
+      $(".image-container h3, .image-container p").delay(1000).animate({opacity: 1}, 1000);
+    }
+  });
