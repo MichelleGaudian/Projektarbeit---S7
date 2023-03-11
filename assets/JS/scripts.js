@@ -26,6 +26,21 @@ document.getElementById('to-top').addEventListener('click', function(){
     document.documentElement.scrollTop = 0
 })
 
+// GK Event Listner "scroll" wird nur ausgeführt wenn gescrollt wird - wenn der arber fehlt, dann wird bei scroll nichts ausgelöst, button dann weg
+document.addEventListener('scroll', function() {
+
+    showToTop()
+    elementInViewport()
+
+})
+
+// Event Listner "resize" wird nur bei Veränderung der Fenstergröße ausgeführt
+window.addEventListener('resize', function(){
+
+    elementInViewport()
+
+})
+
   
 
 // bilder 4 stück einrücken
