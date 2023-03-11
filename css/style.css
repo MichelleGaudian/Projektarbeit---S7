@@ -541,16 +541,22 @@ input[type=submit]:hover,
 	}
 	
 }
-/*2. grosses Bild*/
-  .main-img img {
-    width: 100%;
-    height: 200px;
-  }
 
+.img-container {
+    display: flex;
+	
+	/* Die Weite auskommentieren, damit immer 100% und justify-content bei flex-containern nutzen. bei weite von 100 geht kein center wegen bildgrösse */
+	
+    /* width: 100px;*/
+    height: 100px;
+	justify-content: center;
+   
+}
+
+/*blockiert mein Menü*/
   @media screen and (min-width: 820px) {
     .main-img img {
         height: 400px;
     }
 }
-  }
-}
+  
