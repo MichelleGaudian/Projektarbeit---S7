@@ -99,7 +99,7 @@ body {
 
 @media screen and (min-width: 820px) {
     body {
-        padding-top: 100px;
+        padding-top: 150px;
     }
 }
 
@@ -211,7 +211,7 @@ a:active {
     right: 30px;
 
     /* GK steht über dem footer-menü, aber noch im footer-balken */
-    bottom: 55px;
+    bottom: 97px;
     
     z-index: 1000;
     width: 60px;
@@ -232,6 +232,17 @@ a:active {
     pointer-events: none;
     transition: opacity 200ms ease-in-out, transform 200ms linear;
 }
+
+@media screen and (min-width: 768px) {
+    #to-top {
+        
+        
+    bottom: 55px;
+    
+        
+    }
+}
+
 
 #to-top:hover {
  transform: translateY(-10%);
@@ -425,7 +436,7 @@ input[type=submit]:hover,
         transform: translateX(-50%);
         width: 200px;
         padding: 0.5em;
-		background-color: #BCBCBC;
+		background-color: #A6D1FE;
 		border-radius: 12px;
         opacity: 0;
         pointer-events: none;
@@ -440,7 +451,7 @@ input[type=submit]:hover,
         height: 0;
         border-style: solid;
         border-width: 0 10px 16px 10px;
-        border-color: transparent transparent #BCBCBC transparent;
+        border-color: transparent transparent #A6D1FE transparent;
         position: absolute;
         top: 0;
         left: 50%;
@@ -578,21 +589,32 @@ input[type=submit]:hover,
 
 
 #nav-footer  {
-    text-align: right;
-    margin-right: 15px;
+    text-align: center;
+  
+    
 }
 
 @media screen and (min-width: 768px) {
     #nav-footer {
         text-align: right;
+        margin-right: 15px;
+
+
         
     }
 }
 
 #nav-footer li {
-    display: inline-block;
-    margin-left: 30px ;
+    text-align: center;
 }
+
+@media screen and (min-width: 768px) {
+    #nav-footer li {
+        display: inline-block;
+        margin-left: 15px;
+    }
+}
+
 
 #nav-footer li:first-child {
     
@@ -609,7 +631,7 @@ input[type=submit]:hover,
 
 Copyright 
 .copyright {
-    text-align: left;
+    text-align: center;
     margin-left: 15px;
 
 }
@@ -645,7 +667,7 @@ Copyright
     }
 	.content-container {
 		
-		background-color: #806FDF;
+		
 		padding: 20px;
 		
 	}
@@ -664,7 +686,9 @@ Copyright
     }
 	.content-container {
 		
-		background-color: #A6D1FE;
+		border-color: #A6D1FE;
+        border-style: solid;
+        border-width: 1px;
 		padding: 20px;
 		
 		
@@ -686,8 +710,13 @@ Copyright
    
 }
 
+.main-img img {
+    height: 200px;
+    width: 100%;
+}
+
 /*blockiert mein Menü*/
-  @media screen and (min-width: 820px) {
+@media screen and (min-width: 820px) {
     .main-img img {
         height: 400px;
         width: 100%;
@@ -702,12 +731,13 @@ Copyright
     margin-left: auto;
     padding-left: 0px;
     padding-right: 0px;
+    text-align: center;
 }
 
 @media screen and (min-width: 768px) {
     .footer-container {
-        padding-left: 0px;
-        padding-right: 0px;
+        padding-left: 30px;
+        padding-right: 30px;
     }
 }
 
@@ -715,6 +745,7 @@ Copyright
 /* Footer Columns */
 .footer-columns>.footer-column {
     margin-top: 0px;
+    
 }
 
 @media screen and (min-width: 768px) {
