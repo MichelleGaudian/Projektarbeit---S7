@@ -1,0 +1,739 @@
+/*!
+Theme Name: s7theme
+Theme URI: https://www.wifi.at/
+Author: Michelle Gaudian
+Description: WordPress Theme - Mitarbeiterschulung
+Dieses Theme ist im Rahmen des Wifikurs Webdevelopment entstanden.
+In diesem Theme werden responsive Elemente in Verbindung mti einem Scroll-to-Top-Button und einem Menü mit visualisierten Untermenü umgesetzt.
+Version: 1.0
+Requires at least: 5.6
+Requires PHP: 8.0
+Text Domain: wifi
+*/
+
+
+@charset "UTF-8";
+
+/* ******************
+ * CSS Variablen
+ */
+
+:root {
+    --base-bg: #fff;
+    --base: #000;
+    --navbar-bg: #fff;
+    --primary: #000;
+    --secondary: #3A2B71;
+    --footer-text: #fff;
+    --footer-link: #A6D1FE
+}
+
+/* roboto-300 - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    src: url('assets/fonts/roboto-v30-latin-300.eot'); /* IE9 Compat Modes */
+    src: url('assets/fonts/roboto-v30-latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('assets/fonts/roboto-v30-latin-300.woff2') format('woff2'), /* Super Modern Browsers */
+         url('assets/fonts/roboto-v30-latin-300.woff') format('woff'), /* Modern Browsers */
+         url('assets/fonts/roboto-v30-latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('assets/fonts/roboto-v30-latin-300.svg#Roboto') format('svg'); /* Legacy iOS */
+  }
+  /* roboto-regular - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: url('assets/fonts/roboto-v30-latin-regular.eot'); /* IE9 Compat Modes */
+    src: url('assets/fonts/roboto-v30-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('assets/fonts/roboto-v30-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('assets/fonts/roboto-v30-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('assets/fonts/roboto-v30-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('assets/fonts/roboto-v30-latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
+  }
+  /* roboto-700 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    src: url('assets/fonts/roboto-v30-latin-700.eot'); /* IE9 Compat Modes */
+    src: url('assets/fonts/roboto-v30-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('assets/fonts/roboto-v30-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+         url('assets/fonts/roboto-v30-latin-700.woff') format('woff'), /* Modern Browsers */
+         url('assets/fonts/roboto-v30-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('assets/fonts/roboto-v30-latin-700.svg#Roboto') format('svg'); /* Legacy iOS */
+  }
+
+
+/*Base Styles*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 17px;
+    line-height: 1.4;
+    scroll-behavior: smooth;
+}
+
+@media screen and (min-width: 1200px) {
+    html {
+        font-size: 20px;
+    }
+}
+
+body {
+    margin: 0;
+    padding-top: 60px;
+    background: linear-gradient(45deg, var(--base-bg) 10%, var(--navbar-bg) 90%) fixed;
+    color: var(--base);
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+}
+
+@media screen and (min-width: 820px) {
+    body {
+        padding-top: 100px;
+    }
+}
+
+
+/* Headlines */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+    font-weight: 600;
+}
+
+h1 {
+    font-size: clamp(1.765em, 5vw, 70px);
+    line-height: 1;
+    margin-top: 2em;
+    text-align: center;
+
+}
+
+h2 {
+    font-size: clamp(1.53em, 4vw, 40px);
+    line-height: 1.1;
+    margin-top: 10px;
+   font-size: 1.2rem;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+h4 {
+    font-size: 1.2em;
+}
+
+h5 {
+    font-size: 1.1em;
+}
+
+h6 {
+    font-size: 1em;
+}
+
+.is-style-headline {
+    position: relative;
+}
+
+.is-style-headline::after {
+    content: "";
+    display: block;
+    width: 90px;
+    height: 4px;
+    background-color: var(--primary);
+    transform: translateX(-10px);
+}
+
+/* Images/Figures */
+figure {
+    margin: 0;
+}
+/* Die Zuweisung zum header-img führt zur gesamtinterpretation. Sollte aber grundsätzlich gelten */
+.header-img img:not([src$=svg]) {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+    
+}
+
+
+/* Anchor (Links) */
+a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    color: var(--base);
+}
+
+.container {
+    max-width: 1400px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+@media screen and (min-width: 768px) {
+    .container {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+/* ******************
+ * TO TOP
+ */
+
+ #to-top {
+    position: fixed;
+    right: 30px;
+
+    /* GK steht über dem footer-menü, aber noch im footer-balken */
+    bottom: 55px;
+    
+    z-index: 1000;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #2b1d95;
+    text-align: center;
+    line-height: 60px;
+    text-transform: uppercase;
+    font-size: 0.8em;
+	
+	/* GK ohne schriftfarbe ist der text schwarz */
+	color: #fff;
+	
+	
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease-in-out, transform 200ms linear;
+}
+
+#to-top:hover {
+ transform: translateY(-10%);
+}
+
+#to-top.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+/* ******************
+ * BUTTONS
+ */
+
+button,
+input[type=submit],
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 0 1.7em;
+    min-height: 50px;
+    line-height: 50px;
+    transition: all 200ms ease-out;
+    font-size: 1rem;
+    font-weight: 500;
+    texteite-align: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 25px;
+    white-space: nowrap;
+}
+
+button:hover,
+input[type=submit]:hover,
+.btn:hover {
+    text-decoration: none;
+    box-shadow: 0 3PX 6px rgba(0, 192, 255, 0.2);
+}
+
+button:active,
+input[type=submit]:active,
+.btn:active {
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.8);
+}
+
+button,
+input[type=submit],
+.btn {
+    background-color: var(--primary);
+    color: var(--base);
+}
+
+button:hover,
+input[type=submit]:hover,
+.btn:hover {
+    background-color: var(--base);
+    color: var(--primary);
+}
+
+
+
+/* ******************
+ * NAVIGATION
+ */
+/* Navbar */
+#navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: var(--navbar-bg);
+}
+
+#navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+}
+
+@media screen and (min-width: 820px) {
+    #navbar .container {
+        height: 150px;
+    }
+}
+
+
+/* Logo */
+#brand {
+    height: 80px;
+    padding: 20px;
+}
+
+#brand .custom-logo {
+    height: 100%;
+}
+
+@media screen and (min-width: 820px) {
+    #brand {
+        height: 150px;
+    }
+}
+
+#brand .custom-logo:not([src$=svg]) {
+    width: auto;
+}
+
+
+/* Main Menu */
+.nav-menu,
+.sub-menu {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+	
+}
+
+#nav-main {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 2rem 0;
+    background-color: var(--navbar-bg);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease-in-out;
+    overflow-y: auto;
+    text-align: center;
+    font-weight: 400;
+}
+
+#nav-main a {
+    display: inline-block;
+    color: var(--base);
+    text-decoration: none;
+    padding: 0.75em 0;
+}
+
+#nav-main a:hover {
+    color: var(--primary);
+}
+
+
+#nav-main > li > a {
+    font-size: 1.765em;
+    line-height: 60px;
+    padding: 0;
+}
+
+#nav-main .current-menu-item > a {
+    color: var(--primary);
+}
+
+@media screen and (min-width: 820px) {
+    #nav-main {
+        position: static;
+        display: flex;
+        padding: 0;
+        overflow: visible;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    #nav-main a {
+        font-size: 0.85em;
+    }
+
+    #nav-main > li {
+        position: relative;
+        margin-left: 2em;
+    }
+
+    #nav-main > li:hover > .sub-menu {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    #nav-main > li > a {
+        font-size: 1em;
+        line-height: 100px;
+    }
+
+    #nav-main .sub-menu {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        padding: 0.5em;
+		background-color: #BCBCBC;
+		border-radius: 12px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 150ms ease-in-out;
+    }
+
+
+   /* Triangle Generator => https://codepen.io/yukulele/pen/AgzXdJ */
+    #nav-main .sub-menu:before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 10px 16px 10px;
+        border-color: transparent transparent #BCBCBC transparent;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%) translateY(-100%);
+    }
+}
+
+/* Menu Toggle */
+#nav-button {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+@media (min-width: 820px) {
+    #nav-button {
+        display: none;
+    }
+}
+
+#nav-button .nav-button-icon,
+#nav-button .nav-button-icon::before,
+#nav-button .nav-button-icon::after {
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: var(--base);
+}
+
+#nav-button .nav-button-icon {
+    position: relative;
+    left: -50px;
+    transition: background-color 250ms ease-in-out;
+}
+
+#nav-button .nav-button-icon::before, #nav-button .nav-button-icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: transform 250ms ease-in-out;
+}
+
+#nav-button .nav-button-icon::before {
+    transform: translateY(-12px);
+}
+
+#nav-button .nav-button-icon::after {
+    transform: translateY(12px);
+}
+
+#nav-toggle {
+    display: none;
+}
+
+#nav-toggle:checked ~ #nav-button .nav-button-icon {
+    background-color: transparent;
+}
+
+#nav-toggle:checked ~ #nav-button .nav-button-icon::before {
+    transform: rotate(-45deg);
+}
+
+#nav-toggle:checked ~ #nav-button .nav-button-icon::after {
+    transform: rotate(45deg);
+}
+
+#nav-toggle:checked ~ #nav-main {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ******************
+ * SCREEN READER TEXT (WordPress Core Styles)
+ */
+
+ .screen-reader-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+    background-color: #eee;
+    clip: auto !important;
+    -webkit-clip-path: none;
+    clip-path: none;
+    color: #444;
+    display: block;
+    font-size: 1em;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+}
+
+.main-section {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+/*footer*/
+
+#footer {
+
+    margin-top: 120px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-top: 5px;
+    align-items: center;
+    background-color: #000;
+    color: var(--footer-text);
+    border-color: var(--base-bg);
+    border-style: solid;
+    
+
+}
+
+
+
+
+#nav-footer  {
+    text-align: right;
+    margin-right: 15px;
+}
+
+@media screen and (min-width: 768px) {
+    #nav-footer {
+        text-align: right;
+        
+    }
+}
+
+#nav-footer li {
+    display: inline-block;
+    margin-left: 30px ;
+}
+
+#nav-footer li:first-child {
+    
+}
+
+#nav-footer a {
+    color: var(--footer-text);
+}
+
+#nav-footer a:hover {
+    color: var(--footer-link);
+    text-decoration: none;
+}
+
+Copyright 
+.copyright {
+    text-align: left;
+    margin-left: 15px;
+
+}
+
+@media screen and (min-width: 768px) {
+    .copyright {
+        text-align: left;
+        margin-left: 15px;
+    }
+}
+
+
+
+/* GK Darstellung der Spalten Anfang */
+
+
+.columns > .column {
+	
+	opacity: 0;
+	
+	
+	
+    
+}
+
+@media screen and (min-width: 768px) {
+    .columns {
+        margin-top: 0px;
+        display: flex;
+        gap: 15px;
+		
+		
+    }
+	.content-container {
+		
+		background-color: #806FDF;
+		padding: 20px;
+		
+	}
+	
+
+ 
+}
+
+/* GK Spaltenabstand bei 1200px */
+@media screen and (min-width: 1200px) {
+    .columns {
+		display: flex;
+        gap: 100px;
+		
+		
+    }
+	.content-container {
+		
+		background-color: #A6D1FE;
+		padding: 20px;
+		
+		
+	}
+    .columns.reverse {
+        flex-direction: row-reverse;
+    }
+	
+}
+
+.img-container {
+    display: flex;
+	
+	/* Die Weite auskommentieren, damit immer 100% und justify-content bei flex-containern nutzen. bei weite von 100 geht kein center wegen bildgrösse */
+	
+    /* width: 100px;*/
+    height: 100px;
+	justify-content: center;
+   
+}
+
+/*blockiert mein Menü*/
+  @media screen and (min-width: 820px) {
+    .main-img img {
+        height: 400px;
+        width: 100%;
+    }
+}
+
+
+/* Container Footer */
+.footer-container {
+    max-width: 1400px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+@media screen and (min-width: 768px) {
+    .footer-container {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+
+/* Footer Columns */
+.footer-columns>.footer-column {
+    margin-top: 0px;
+}
+
+@media screen and (min-width: 768px) {
+    .footer-columns {
+        display: flex;
+        gap: 15px;
+    }
+
+    .footer-columns>.footer-column {
+        flex-basis: 0;
+        flex-grow: 1;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .footer-columns {
+        gap: 30px;
+    }
+}
+
+
+  
