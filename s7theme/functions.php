@@ -158,6 +158,9 @@ add_action('wp_enqueue_scripts', function () use ($version) {
     // CSS (style.css) im Head einfügen
     wp_enqueue_style('icons-css', get_template_directory_uri() . '/assets/icons/style.min.css');
     wp_enqueue_style('webdev-css', get_template_directory_uri() . '/style.css');
+   // JS im Footer einfügen
+    wp_enqueue_script('webdev-js', get_template_directory_uri() . '/assets/js/scripts.js', [], $version, true);
+
 });
 
 

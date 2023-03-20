@@ -2,9 +2,7 @@
 Theme Name: s7theme
 Theme URI: https://www.wifi.at/
 Author: Michelle Gaudian
-Description: WordPress Theme - Mitarbeiterschulung
-Dieses Theme ist im Rahmen des Wifikurs Webdevelopment entstanden.
-In diesem Theme werden responsive Elemente in Verbindung mti einem Scroll-to-Top-Button und einem Menü mit visualisierten Untermenü umgesetzt.
+Description: WordPress Theme - Mitarbeiterschulung Dieses Theme ist im Rahmen des Wifikurs Webdevelopment entstanden. In diesem Theme werden responsive Elemente in Verbindung mti einem Scroll-to-Top-Button und einem Menü mit visualisierten Untermenü umgesetzt.
 Version: 1.0
 Requires at least: 5.6
 Requires PHP: 8.0
@@ -90,10 +88,10 @@ html {
 
 body {
     margin: 0;
-    padding-top: 60px;
+    padding-top: 160px;
     background: linear-gradient(45deg, var(--base-bg) 10%, var(--navbar-bg) 90%) fixed;
     color: var(--base);
-    font-family: "Poppins", sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: 300;
 }
 
@@ -210,7 +208,7 @@ a:active {
     position: fixed;
     right: 30px;
 
-    /* GK steht über dem footer-menü, aber noch im footer-balken */
+    /*  steht über dem footer-menü, aber noch im footer-balken */
     bottom: 97px;
     
     z-index: 1000;
@@ -223,7 +221,7 @@ a:active {
     text-transform: uppercase;
     font-size: 0.8em;
 	
-	/* GK ohne schriftfarbe ist der text schwarz */
+	/*  ohne schriftfarbe ist der text schwarz */
 	color: #fff;
 	
 	
@@ -645,7 +643,7 @@ Copyright
 
 
 
-/* GK Darstellung der Spalten Anfang */
+/*  Darstellung der Spalten Anfang */
 
 
 .columns > .column {
@@ -676,7 +674,7 @@ Copyright
  
 }
 
-/* GK Spaltenabstand bei 1200px */
+/*  Spaltenabstand bei 1200px */
 @media screen and (min-width: 1200px) {
     .columns {
 		display: flex;

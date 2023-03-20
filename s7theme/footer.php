@@ -11,9 +11,16 @@
 */ ?>
 <footer id="footer-page" class="container columns">
     
+<div class="copyright footer-column">
+        <?php /* sprintf — gibt einen formatierten String zurück
+                * https://www.php.net/manual/en/function.sprintf.php
+                * translators: 1: Datum (nur Jahr), 2: Name der WordPress Seite
+                */
+        echo sprintf(__('&copy; %1$s, %2$s'), date('Y'), get_bloginfo('name')); ?>
+    </div>
 
-
-    <nav id="nav-footer" class="column">
+    <nav id="nav-footer" class="footer-column">
+            <ul class="nav-menu">
         <?php /*
                 * Ausgabe des Menüs, dass im WordPress als "Footer Navigation" festgelegt wurde (Design -> Menüs oder Cusotmizer -> Menüs / Position im Theme: Checkbox "Footer Navigation")
                 * https://developer.wordpress.org/reference/functions/wp_nav_menu/
@@ -25,14 +32,9 @@
             'depth' => 1,          // Anzahl der Menüebenen die ausgegeben werden
             'fallback_cb' => false       // wenn im WordPress kein Menü als "Footer Navigation" zugewiesen wurde (Checkbox), wird keine Navigation ausgegeben. Default wäre die Ausgebe der WordPress Funktion "wp_page_menu()" (https://developer.wordpress.org/reference/functions/wp_page_menu/)
         )); ?>
+        </ul>
     </nav>
-    <div class="copyright column">
-        <?php /* sprintf — gibt einen formatierten String zurück
-                * https://www.php.net/manual/en/function.sprintf.php
-                * translators: 1: Datum (nur Jahr), 2: Name der WordPress Seite
-                */
-        echo sprintf(__('&copy; %1$s, %2$s'), date('Y'), get_bloginfo('name')); ?>
-    </div>
+    
 
 
 
