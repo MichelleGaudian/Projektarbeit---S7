@@ -26,7 +26,7 @@ document.getElementById('to-top').addEventListener('click', function(){
     document.documentElement.scrollTop = 0
 })
 
-// GK Event Listner "scroll" wird nur ausgeführt wenn gescrollt wird - wenn der arber fehlt, dann wird bei scroll nichts ausgelöst, button dann weg
+//  Event Listner "scroll" wird nur ausgeführt wenn gescrollt wird - wenn der arber fehlt, dann wird bei scroll nichts ausgelöst, button dann weg
 document.addEventListener('scroll', function() {
 
     showToTop()
@@ -43,21 +43,6 @@ window.addEventListener('resize', function(){
 
   
 
-// bilder 4 stück einrücken
-/*
-$(window).scroll(function() {
-    var scrollBottom = $(window).scrollTop() + $(window).height();
-    var columnsTop = $(".columns").offset().top;
-    
-    if (scrollBottom > columnsTop) {
-      $(".content-container img-container").each(function(index) {
-        $(this).delay(index * 250).animate({opacity: 1}, 1000);
-      });
-      
-      $(".content-container h3, .content-container p").delay(1000).animate({opacity: 1}, 1000);
-    }
-  });
-  */
 
 
 
