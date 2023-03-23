@@ -18,7 +18,7 @@ Text Domain: wifi
 
 :root {
     --base-bg: #fff;
-    --base: #000;
+    --base: #000000;
     --navbar-bg: #fff;
     --primary: #000;
     --secondary: #3A2B71;
@@ -185,15 +185,16 @@ a:active {
 }
 
 .container {
-    max-width: 1400px;
-    margin-right: auto;
+    max-width: 2400px;
+	margin-right: auto;
     margin-left: auto;
     padding-left: 15px;
     padding-right: 15px;
+    
 }
 
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 820px) {
     .container {
         padding-left: 30px;
         padding-right: 30px;
@@ -215,14 +216,14 @@ a:active {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background-color: #2b1d95;
+    background-color: #6EC1E4;
     text-align: center;
     line-height: 60px;
     text-transform: uppercase;
     font-size: 0.8em;
 	
 	/*  ohne schriftfarbe ist der text schwarz */
-	color: #fff;
+	color: #000;
 	
 	
     cursor: pointer;
@@ -231,7 +232,7 @@ a:active {
     transition: opacity 200ms ease-in-out, transform 200ms linear;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 820px) {
     #to-top {
         
         
@@ -320,7 +321,7 @@ input[type=submit]:hover,
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 60px;
+    height: 135px;
 }
 
 @media screen and (min-width: 820px) {
@@ -332,8 +333,8 @@ input[type=submit]:hover,
 
 /* Logo */
 #brand {
-    height: 80px;
-    padding: 20px;
+    height: 110px;
+    padding: 0px;
 }
 
 #brand .custom-logo {
@@ -434,7 +435,7 @@ input[type=submit]:hover,
         transform: translateX(-50%);
         width: 200px;
         padding: 0.5em;
-		background-color: #A6D1FE;
+		background-color: #6EC1E4;
 		border-radius: 12px;
         opacity: 0;
         pointer-events: none;
@@ -449,7 +450,7 @@ input[type=submit]:hover,
         height: 0;
         border-style: solid;
         border-width: 0 10px 16px 10px;
-        border-color: transparent transparent #A6D1FE transparent;
+        border-color: transparent transparent #6EC1E4 transparent;
         position: absolute;
         top: 0;
         left: 50%;
@@ -459,8 +460,8 @@ input[type=submit]:hover,
 
 /* Menu Toggle */
 #nav-button {
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
     display: flex;
     justify-content: flex-end;
@@ -523,6 +524,7 @@ input[type=submit]:hover,
 #nav-toggle:checked ~ #nav-main {
     opacity: 1;
     pointer-events: auto;
+	top: 150px;
 }
 
 /* ******************
@@ -575,7 +577,7 @@ input[type=submit]:hover,
     padding-bottom: 15px;
     border-top: 5px;
     align-items: center;
-    background-color: #000;
+    background-color: #000 !important;
     color: var(--footer-text);
     border-color: var(--base-bg);
     border-style: solid;
@@ -592,7 +594,7 @@ input[type=submit]:hover,
     
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 820px) {
     #nav-footer {
         text-align: right;
         margin-right: 15px;
@@ -606,7 +608,7 @@ input[type=submit]:hover,
     text-align: center;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 820px) {
     #nav-footer li {
         display: inline-block;
         margin-left: 15px;
@@ -634,7 +636,7 @@ Copyright
 
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 820px) {
     .copyright {
         text-align: left;
         margin-left: 15px;
@@ -655,7 +657,7 @@ Copyright
     
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 820px) {
     .columns {
         margin-top: 0px;
         display: flex;
@@ -724,20 +726,16 @@ Copyright
 
 /* Container Footer */
 .footer-container {
-    max-width: 1400px;
-    margin-right: auto;
-    margin-left: auto;
+    max-width: 100%;
+    margin-right: 0px;
+    margin-left: opx;
     padding-left: 0px;
     padding-right: 0px;
     text-align: center;
 }
 
-@media screen and (min-width: 768px) {
-    .footer-container {
-        padding-left: 30px;
-        padding-right: 30px;
-    }
-}
+
+
 
 
 /* Footer Columns */
@@ -746,7 +744,7 @@ Copyright
     
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 820px) {
     .footer-columns {
         display: flex;
         gap: 15px;
@@ -758,9 +756,12 @@ Copyright
     }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 820px) {
     .footer-columns {
         gap: 30px;
+		margin-left: 0px;
+		margin-right: 0px;
+		max-width: 100%;
     }
 }
 

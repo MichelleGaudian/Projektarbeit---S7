@@ -9,14 +9,18 @@
  *  </html> Tag stehen - geöffnet werden die Tags in
  *  der Datei "header.php"
 */ ?>
-<footer id="footer-page" class="container columns">
+   
+
+
+<footer id="footer" class="footer-container footer-columns">
+
     
 <div class="copyright footer-column">
         <?php /* sprintf — gibt einen formatierten String zurück
                 * https://www.php.net/manual/en/function.sprintf.php
                 * translators: 1: Datum (nur Jahr), 2: Name der WordPress Seite
                 */
-        echo sprintf(__('&copy; %1$s, %2$s'), date('Y'), get_bloginfo('name')); ?>
+        echo sprintf(__('&copy; %2$s'), date('Y'), 'sevian7 IT Development GmbH'); ?>
     </div>
 
     <nav id="nav-footer" class="footer-column">
