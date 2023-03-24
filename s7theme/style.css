@@ -269,6 +269,8 @@ input[type=submit]:hover,
 .btn:hover {
     text-decoration: none;
     box-shadow: 0 3PX 6px rgba(0, 192, 255, 0.2);
+    background-color: var(--secondary);
+    color: var(--base-bg);
 }
 
 button:active,
@@ -281,15 +283,9 @@ button,
 input[type=submit],
 .btn {
     background-color: var(--primary);
-    color: var(--base);
+    color: var(--base-bg);
 }
 
-button:hover,
-input[type=submit]:hover,
-.btn:hover {
-    background-color: var(--base);
-    color: var(--primary);
-}
 
 /* ******************
  * NAVIGATION
@@ -308,7 +304,7 @@ input[type=submit]:hover,
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 150px; height height
+    height: 150px; height height height
 }
 
 @media screen and (min-width: 820px) {
@@ -348,9 +344,9 @@ input[type=submit]:hover,
 
 #nav-main {
     position: fixed;
-    top: 60px; top top
-    right: 0;right
-    bottom: 0;
+    top: 60px; top top top
+    right: 0;rightright
+    bottom: 0;bottom
     left: 0;
     padding: 2rem 0;
     background-color: var(--navbar-bg);
