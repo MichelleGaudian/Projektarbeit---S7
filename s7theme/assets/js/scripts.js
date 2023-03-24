@@ -1,9 +1,8 @@
-// Funktion zur Prüfung ob JS geladen wurde (ändern der Klasse "no-js" im HTML-Tag)
+// Funktion zur Prüfung ob JS geladen wurde 
 function jsLoaded() {
     const htmlTag = document.querySelector('html')
     htmlTag.classList.remove('no-js')
     htmlTag.classList.add('js')
-    
 }
 
 
@@ -28,19 +27,14 @@ document.getElementById('to-top').addEventListener('click', function(){
 
 //  Event Listner "scroll" wird nur ausgeführt wenn gescrollt wird - wenn der arber fehlt, dann wird bei scroll nichts ausgelöst, button dann weg
 document.addEventListener('scroll', function() {
-
     showToTop()
     elementInViewport()
-
 })
 
 // Event Listner "resize" wird nur bei Veränderung der Fenstergröße ausgeführt
 window.addEventListener('resize', function(){
-
     elementInViewport()
-
 })
-
   
 
 

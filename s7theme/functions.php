@@ -1,46 +1,13 @@
-<?php
-/*
- * In der functions.php werden über Actions, Filter & Hooks sämtliche 
- * WordPress Funktionen de-/aktiviert bzw. angepasst
- * https://developer.wordpress.org/themes/basics/theme-functions/
- * https://kinsta.com/de/blog/wordpress-hooks/
- *
- * Offizielle Doku zu WordPress Themes: https://developer.wordpress.org/themes/
- * Offizielle Doku zum Gutenberg Editor: https://developer.wordpress.org/block-editor/
- *
- * Auch eigene PHP-Funktionen, die man in den Teplates verwenden möchte, 
- * können in die functions.php geschrieben werden
- */
 
-/* ---- Theme Setups ----
-* Dieser Hook wird bei jedem Laden der Seite aufgerufen, nachdem das 
-Theme initialisiert wurde. Es wird im Allgemeinen verwendet, um grundlegende Setup-, Registrierungs- und Initiierungsaktionen für ein Theme auszuführen.
-* https://developer.wordpress.org/reference/hooks/after_setup_theme/
-*/
+<?php
+
+/* ---- Theme Setups ----*/
 add_action('after_setup_theme', function () {
 
     // Title Tag in <head> : <title>...</title>
     add_theme_support('title-tag');
 
-    /* Pfad zur Sprachdatei
-    * load_textdomain() gibt den Namen der Übersetzungsdatei 
-    (beliebiger Name) und den Pfad an, wo diese zu finden ist.
-    * https://developer.wordpress.org/reference/functions/load_textdomain/
-    * get_template_directory() liefert den absoluten Server-Pfad zum 
-    Theme-Verzeichnis (ZB: "/var/www/html/wp-content/themes/webdev-theme") https://developer.wordpress.org/reference/functions/get_template_directory/
-    *
-    * Sämtliche Texte die wir in unserer functions.php oder in Templates 
-    schreiben und im Frontend oder Backend angezeigt werden, sollten 
-    über die Textdomain übersetzbar sein!
-    * die Ausgabe im PHP wird in der Funktion als echo "_e('Zu 
-    übersetzender Text','TEXTDOMAIN')" oder return "__('Zu übersetzender
-     Text','TEXTDOMAIN')" eingebunden
-    * https://developer.wordpress.org/reference/functions/_e/
-    */
     load_textdomain('wifi', get_template_directory() . '/assets/languages');
-
-        // Aktivierung von Beitragsbildern
-    //add_theme_support('post-thumbnails');
 
     // WordPress HTML5-Markup
     add_theme_support('html5', array(
@@ -53,26 +20,13 @@ add_action('after_setup_theme', function () {
         'comment-form'
     ));
 
-
-
-
-
-
-    /*
-    * register_nav_menus() registriert Navigations Menüs (ohne diese Funktion gibt es im Admin-Menü: "Design > Menüs" nicht zur Aswahl
-    * im array werden die "Positionen im Theme" definiert
-    * https://developer.wordpress.org/reference/functions/register_nav_menus/
-    */
     register_nav_menus(array(
         'primary' => __('Haupt Navigation', 'wifi'),
         'footer' => __('Footer Navigation', 'wifi'),
     ));
 
 
-    /* -- Customizer --
-     * Custom Logo über Customizer zu ändern
-     * https://developer.wordpress.org/themes/functionality/custom-logo/
-     */
+    /* -- Customizer --  */
     add_theme_support('custom-logo', array(
         'height' => 60,
         'width' => 100,
@@ -83,10 +37,7 @@ add_action('after_setup_theme', function () {
     ));
 
 
-    /* -- Gutenberg Editor --
-    * https://developer.wordpress.org/block-editor/developers/themes/theme-support/
-    * Offizielle Doku zum Gutenberg Editor: https://developer.wordpress.org/block-editor/
-    */
+    /* -- Gutenberg Editor --    */
 
     // Theme für Gutenberg optimiert - Lade default Block styles
     add_theme_support('wp-block-styles');
@@ -102,41 +53,17 @@ add_action('after_setup_theme', function () {
     // Responsive Embeds (ZB. YouTube Videos, Iframes) erlauben
     add_theme_support('responsive-embeds');
 
-    //eigene Schriftgröße im Editor deaktivieren
-    //add_theme_support('disable-custom-font-sizes');
-
-    // eigene Farbauswahl-Palette deaktivieren
-    //add_theme_support('disable-custom-colors');
-
-    // eignen Farbverlauf im Editor deaktivieren
-    //add_theme_support('disable-custom-gradients');
-
-    //Farbpalette im Editor hinzufügen
-    /*
-    add_theme_support('editor-color-palette', array(
-        array(
-            'name' => __('Font-Color', 'wifi'),
-            'slug' => 'color-1',
-            'color' => '#383838'
-        ),
-        array(
-            'name' => __('Background Color', 'wifi'),
-            'slug' => 'color-2',
-            'color' => '#fff'
-        )
-    ));
-    */
+   
 
     // Adminbar im Frontend deaktivieren (wenn aktiviert, sollten die Syles für Navigation angepasst werden)
-    add_filter('show_admin_bar', '__return_false');
+    
+    add_filter('show_admin_bar', '__return_false'); 
 
 });
 
 
 /*
- * Zusätzlichen Mimes (Dokumenttypen) für den Upload erlauben
- * https://developer.wordpress.org/reference/hooks/upload_mimes/
- */
+ * Zusätzlichen Mimes (Dokumenttypen) für den Upload erlauben */
 add_filter('upload_mimes', function ($mimes = array()) {
     $mimes['svg'] = 'image/svg+xml';
     $mimes['svgz'] = 'image/svg+xml';
@@ -144,12 +71,7 @@ add_filter('upload_mimes', function ($mimes = array()) {
 });
 
 
-/* ---- CSS & JS in <head> bzw. vor dem </body> einfügen [ wp_head() ,
- wp_footer() ] ----
-* https://developer.wordpress.org/reference/functions/wp_enqueue_script/
-* der "Handle" muss eindeutig sein
-* Liste aller Scripten, die WordPress bereits inkludiert hat: https://developer.wordpress.org/reference/functions/wp_enqueue_script/#default-scripts-and-js-libraries-included-and-registered-by-wordpress
-*/
+/* ---- CSS & JS in <head> bzw. vor dem </body> einfügen [ wp_head() ,*/
 $theme_version = wp_get_theme()->get( 'Version' );
 $version = is_string( $theme_version ) ? $theme_version : false;
 
@@ -159,7 +81,6 @@ add_action('wp_enqueue_scripts', function () use ($version) {
     wp_enqueue_style('webdev-css', get_template_directory_uri() . '/style.css');
    // JS im Footer einfügen
     wp_enqueue_script('webdev-js', get_template_directory_uri() . '/assets/js/scripts.js', [], $version, true);
-
 });
 
 
@@ -171,7 +92,6 @@ add_filter('show_admin_bar', '__return_false');
 
     /* Hinzufügen von Gutenberg-Block-Kategorie */ 
 add_filter( 'block_categories_all', function($categories){
-
     return array_merge(
             array(
                 array(
@@ -183,5 +103,3 @@ add_filter( 'block_categories_all', function($categories){
             );
 
 }, 10, 2 );
-
-

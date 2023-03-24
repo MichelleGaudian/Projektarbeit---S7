@@ -118,7 +118,6 @@ h1 {
     line-height: 1;
     margin-top: 2em;
     text-align: center;
-
 }
 
 h2 {
@@ -190,7 +189,6 @@ a:active {
     margin-left: auto;
     padding-left: 15px;
     padding-right: 15px;
-    
 }
 
 
@@ -221,11 +219,7 @@ a:active {
     line-height: 60px;
     text-transform: uppercase;
     font-size: 0.8em;
-	
-	/*  ohne schriftfarbe ist der text schwarz */
 	color: #000;
-	
-	
     cursor: pointer;
     opacity: 0;
     pointer-events: none;
@@ -234,14 +228,9 @@ a:active {
 
 @media screen and (min-width: 820px) {
     #to-top {
-        
-        
     bottom: 55px;
-    
-        
     }
 }
-
 
 #to-top:hover {
  transform: translateY(-10%);
@@ -302,8 +291,6 @@ input[type=submit]:hover,
     color: var(--primary);
 }
 
-
-
 /* ******************
  * NAVIGATION
  */
@@ -321,12 +308,12 @@ input[type=submit]:hover,
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 135px;
+    height: 150px; height height
 }
 
 @media screen and (min-width: 820px) {
     #navbar .container {
-        height: 150px;
+        height: 155px;
     }
 }
 
@@ -351,20 +338,18 @@ input[type=submit]:hover,
     width: auto;
 }
 
-
 /* Main Menu */
 .nav-menu,
 .sub-menu {
     margin: 0;
     padding: 0;
     list-style-type: none;
-	
 }
 
 #nav-main {
     position: fixed;
-    top: 60px;
-    right: 0;
+    top: 60px; top top
+    right: 0;right
     bottom: 0;
     left: 0;
     padding: 2rem 0;
@@ -581,26 +566,16 @@ input[type=submit]:hover,
     color: var(--footer-text);
     border-color: var(--base-bg);
     border-style: solid;
-    
-
 }
-
-
-
 
 #nav-footer  {
     text-align: center;
-  
-    
 }
 
 @media screen and (min-width: 820px) {
     #nav-footer {
         text-align: right;
         margin-right: 15px;
-
-
-        
     }
 }
 
@@ -633,7 +608,6 @@ Copyright
 .copyright {
     text-align: center;
     margin-left: 15px;
-
 }
 
 @media screen and (min-width: 820px) {
@@ -649,12 +623,7 @@ Copyright
 
 
 .columns > .column {
-	
 	opacity: 0;
-	
-	
-	
-    
 }
 
 @media screen and (min-width: 820px) {
@@ -662,18 +631,11 @@ Copyright
         margin-top: 0px;
         display: flex;
         gap: 15px;
-		
-		
     }
-	.content-container {
-		
-		
-		padding: 20px;
-		
-	}
 	
-
- 
+	.content-container {
+		padding: 20px;
+	}
 }
 
 /*  Spaltenabstand bei 1200px */
@@ -681,33 +643,22 @@ Copyright
     .columns {
 		display: flex;
         gap: 100px;
-		
-		
     }
 	.content-container {
-		
 		border-color: #A6D1FE;
         border-style: solid;
         border-width: 1px;
 		padding: 20px;
-		
-		
 	}
     .columns.reverse {
         flex-direction: row-reverse;
     }
-	
 }
 
 .img-container {
     display: flex;
-	
-	/* Die Weite auskommentieren, damit immer 100% und justify-content bei flex-containern nutzen. bei weite von 100 geht kein center wegen bildgrösse */
-	
-    /* width: 100px;*/
     height: 100px;
 	justify-content: center;
-   
 }
 
 .main-img img {
@@ -733,10 +684,6 @@ Copyright
     padding-right: 0px;
     text-align: center;
 }
-
-
-
-
 
 /* Footer Columns */
 .footer-columns>.footer-column {
@@ -764,6 +711,5 @@ Copyright
 		max-width: 100%;
     }
 }
-
 
   

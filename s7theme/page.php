@@ -1,9 +1,7 @@
 <?php get_header(); // WordPress Funktion zum Einbinden der header.php  ?>
     <main id="content" class="container">
         <?php /* WordPress Standard Schleife zur Ausgabe des 
-        Seiten-Inhalts und der Beiträge
-        * https://developer.wordpress.org/themes/basics/the-loop/
-        */
+        Seiten-Inhalts und der Beiträge */
         if (have_posts()) {
             while (have_posts()) {
                 the_post();

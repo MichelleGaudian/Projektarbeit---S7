@@ -1,1 +1,1 @@
-Das wird unser Beispiel-Theme
+Abgabeprojekt von Michelle GAUDIAN
